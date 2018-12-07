@@ -10,3 +10,16 @@
 // +----------------------------------------------------------------------
 
 // 应用公共文件
+
+
+if(!function_exists('dump')){
+
+    function dump($parameter){
+          echo  '<pre>';
+          print_r($parameter);
+          exit;
+    }
+}
+
+
+
