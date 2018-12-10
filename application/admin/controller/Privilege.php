@@ -1,9 +1,12 @@
 <?php
 
 namespace app\admin\controller;
+use  Result\CodeResult;
 use  think\Request;
 
+
 Class  Privilege  extends  My_Controller{
+
 
     public function __construct(Request $request = null)
     {
@@ -45,19 +48,27 @@ Class  Privilege  extends  My_Controller{
         if (request()->isAjax()) {
 
             $dataPOST = Request::instance()->only(['cate_name'],'post');
-            if(empty($cate_name)){
+
+            if(empty($dataPOST['cate_name'])){
                 return false;
             }
-          
+
+            $menuList = Db('system_module')->where(array('visible'=>1,'level'=>1,'module'=>'menu'))->select();
+            if(in_array($dataPOST['cate_name'],array_column($menuList,'title'))){
+                $this->response(CodeResult::DATA_EXIST,'分类名已存在');
+            }
             $data  = [
                 'module' => 'menu',
                 'level'  =>  1,
                 'title'  =>  $dataPOST['cate_name'],
             ];
 
-           // Db::name('system_module')->insert($data);
-            Db('system_module')->insert($data);
-
+            $insertId = Db('system_module')->insertGetId($data);
+            if($insertId){
+                $this->response(CodeResult::SUCCESS,'添加成功');
+            }else{
+                $this->response(CodeResult::DB_INSERT_FAIL,'添加失败');
+            }
         }
 
     }

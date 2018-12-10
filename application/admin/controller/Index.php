@@ -8,7 +8,7 @@ class Index  extends  My_Controller
 
     public function index()
     {
-        
+
         return $this->fetch();
     }
 
