@@ -29,7 +29,9 @@ Class  Privilege  extends  My_Controller{
      * @return mixed
      */
     public function admin_cate(){
-        
+
+        $menuList = Db('system_module')->where(array('visible'=>1,'level'=>1,'module'=>'menu'))->select();
+        $this->assign('menuList',$menuList);
         return $this->fetch('admin_cate');
     }
 
@@ -50,7 +52,7 @@ Class  Privilege  extends  My_Controller{
             $dataPOST = Request::instance()->only(['cate_name'],'post');
 
             if(empty($dataPOST['cate_name'])){
-                return false;
+                $this->response(CodeResult::PARAMS_INVALID,'分类名不能为空');
             }
 
             $menuList = Db('system_module')->where(array('visible'=>1,'level'=>1,'module'=>'menu'))->select();
