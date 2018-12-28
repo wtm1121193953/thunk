@@ -1,6 +1,7 @@
 <?php
 
 namespace app\admin\controller;
+use app\admin\model\SystemModule;
 use  Result\CodeResult;
 use  think\Request;
 
@@ -30,7 +31,8 @@ Class  Privilege  extends  My_Controller{
      */
     public function admin_cate(){
 
-        $menuList = Db('system_module')->where(array('visible'=>1,'level'=>1,'module'=>'menu'))->select();
+        $model = new SystemModule();
+        $menuList = $model->get_list('*',array('visible'=>1,'level'=>1,'module'=>'menu'),array('mod_id'=>2));
         $this->assign('menuList',$menuList);
         return $this->fetch('admin_cate');
     }
@@ -47,31 +49,31 @@ Class  Privilege  extends  My_Controller{
      */
     public function add_cate(){
 
-        if (request()->isAjax()) {
-
-            $dataPOST = Request::instance()->only(['cate_name'],'post');
-
-            if(empty($dataPOST['cate_name'])){
-                $this->response(CodeResult::PARAMS_INVALID,'分类名不能为空');
-            }
-
-            $menuList = Db('system_module')->where(array('visible'=>1,'level'=>1,'module'=>'menu'))->select();
-            if(in_array($dataPOST['cate_name'],array_column($menuList,'title'))){
-                $this->response(CodeResult::DATA_EXIST,'分类名已存在');
-            }
-            $data  = [
-                'module' => 'menu',
-                'level'  =>  1,
-                'title'  =>  $dataPOST['cate_name'],
-            ];
-
-            $insertId = Db('system_module')->insertGetId($data);
-            if($insertId){
-                $this->response(CodeResult::SUCCESS,'添加成功');
-            }else{
-                $this->response(CodeResult::DB_INSERT_FAIL,'添加失败');
-            }
-        }
+//        if (request()->isAjax()) {
+//
+//            $dataPOST = Request::instance()->only(['cate_name'],'post');
+//
+//            if(empty($dataPOST['cate_name'])){
+//                $this->response(CodeResult::PARAMS_INVALID,'分类名不能为空');
+//            }
+//
+//            $menuList = Db('system')->where(array('visible'=>1,'level'=>1,'module'=>'menu'))->select();
+//            if(in_array($dataPOST['cate_name'],array_column($menuList,'title'))){
+//                $this->response(CodeResult::DATA_EXIST,'分类名已存在');
+//            }
+//            $data  = [
+//                'module' => 'menu',
+//                'level'  =>  1,
+//                'title'  =>  $dataPOST['cate_name'],
+//            ];
+//
+//            $insertId = Db('system')->insertGetId($data);
+//            if($insertId){
+//                $this->response(CodeResult::SUCCESS,'添加成功');
+//            }else{
+//                $this->response(CodeResult::DB_INSERT_FAIL,'添加失败');
+//            }
+//        }
 
     }
 
