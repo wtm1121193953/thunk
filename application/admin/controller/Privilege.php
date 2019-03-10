@@ -1,8 +1,8 @@
 <?php
 
 namespace app\admin\controller;
-use app\admin\model\SystemModule;
-use  Result\CodeResult;
+use  app\admin\model\SystemModule;
+use  ResultCode;
 use  think\Request;
 
 
@@ -49,37 +49,32 @@ Class  Privilege  extends  My_Controller{
      */
     public function add_cate(){
 
-//        if (request()->isAjax()) {
-//
-//            $dataPOST = Request::instance()->only(['cate_name'],'post');
-//
-//            if(empty($dataPOST['cate_name'])){
-//                $this->response(CodeResult::PARAMS_INVALID,'分类名不能为空');
-//            }
-//
-//            $menuList = Db('system')->where(array('visible'=>1,'level'=>1,'module'=>'menu'))->select();
-//            if(in_array($dataPOST['cate_name'],array_column($menuList,'title'))){
-//                $this->response(CodeResult::DATA_EXIST,'分类名已存在');
-//            }
-//            $data  = [
-//                'module' => 'menu',
-//                'level'  =>  1,
-//                'title'  =>  $dataPOST['cate_name'],
-//            ];
-//
-//            $insertId = Db('system')->insertGetId($data);
-//            if($insertId){
-//                $this->response(CodeResult::SUCCESS,'添加成功');
-//            }else{
-//                $this->response(CodeResult::DB_INSERT_FAIL,'添加失败');
-//            }
-//        }
+        if (request()->isAjax()) {
+
+            $dataPost = Request::instance()->only('cate_name','post');
+            if(empty($dataPost['cate_name'])){
+                $this->response(ResultCode::PARAMS_INVALID,'分类名不能为空');
+            }
+
+            $model = new SystemModule();
+            $menuList = $model->get_list('',array('visible'=>1,'level'=>1,'module'=>'menu'));
+            if(in_array($dataPost['cate_name'],array_column($menuList,'title'))){
+                $this->response(ResultCode::DATA_EXIST,'分类名已存在');
+            }
+            $data  = [
+                'module' => 'menu',
+                'level'  =>  1,
+                'title'  =>  $dataPost['cate_name'],
+            ];
+            $insertId = $model->insert_one($data);
+            if($insertId){
+                $this->response(ResultCode::SUCCESS,'添加成功');
+            }else{
+                $this->response(ResultCode::DB_INSERT_FAIL,'添加失败');
+            }
+        }
 
     }
-
-
-
-
 
 
 

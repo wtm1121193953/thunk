@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        .setSelect-container{
+            width: 240px;
+            position: relative;
+            display: inline-block;
+        }
+        .setSelect{
+            width: 100%;
+            color: transparent;
+            padding: 6px;
+            border:1px solid #84b9ec;
+            border-radius: 4px;
+            background: url(./images/setSelect-img01.png) 400px center no-repeat;
+            background-size: auto;
+        }
+        .setSelect-opt{
+            color: #838383;
+            padding: 6px;
+        }
+        .setSelect-result{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: auto;
+            max-width: 90%;
+            padding: 4px;
+            white-space: nowrap;
+            overflow-x: auto;
+            margin:0;
+        }
+        .setSelect-result-item{
+            position: relative;
+            font-size: 14px;
+            color: #858585;
+            padding: 0px 15px 0 6px;
+            background: #f4f4f4;
+            display: inline-block;
+        }
+        .setSelect-result-del{
+            position: absolute;
+            top:50%;
+            right: 4px;
+            transform:translateY(-50%);
+            -ms-transform:translateY(-50%);     /* IE 9 */
+            -moz-transform:translateY(-50%);    /* Firefox */
+            -webkit-transform:translateY(-50%); /* Safari 和 Chrome */
+            -o-transform:translateY(-50%);  /* Opera */
+            cursor: pointer;
+        }
+        .mt_24{
+            margin-top:24px;
+        }
+        .display_none{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script rel="stylesheet" src="../../../static/layer/mobile/layer.js"> </script>
+<link href="../../../static/layer/mobile/need/layer.css" rel="stylesheet" type="text/css" />
+<link href="../../../css/uploadImg.css" rel="stylesheet" type="text/css" />
+<script rel="stylesheet" src="../../../static/vue/node_modules/vue/dist/vue.js"> </script>
+<script rel="stylesheet" src="../../../static/vue/node_modules/vue/dist/axios.js"> </script>
+<script rel="stylesheet" src="../../../static/uploadImg.js"> </script>
+<script rel="stylesheet" src="../../../static/add.js"> </script>
+
+
+<form enctype="multipart/form-data" method="post" id="submitForm" action="/index/index/submit">
+
+    <p>
+       名称 <input id="name" type="text" name="bannerName"/>
+    </p>
+
+    <div class="uploadImgs-divM m_t_20">
+        <span class="uploadImgs-spanY">PPT背景图：</span>
+        <div id="uploadImg1-container" class="uploadImgs-labelD pd_0">
+            <input id="uploadImg1-save-url" class="display_none element-element-need2 uploadImg-spanA-hidden" name="backgroundOne" data-params="params" type="hidden"><span class="uploadImg-spanA" onclick="setClearImgFn(this)">x</span>
+            <label class="pointer">
+                <div class="uploadImg-preLook w_p100 h_p100"><img src=""  id="showImg_1"  alt="" class="uploadImg-imgA"></div>
+                <div class="uploadImgs-divO">
+                    +<p class="uploadImgs-pB">添加图片</p>
+                </div>
+                <input class="display_none element-element-need2 uploadImg-uploadedFile"   id="showImgFile_1"   name="uploadedFileImg1" type="file">
+            </label>
+        </div>
+    </div>
+
+    <div class="uploadImgs-divM m_t_20">
+        <span class="uploadImgs-spanY">PPT背景图：</span>
+        <div id="uploadImg2-container" class="uploadImgs-labelD pd_0">
+            <input id="uploadImg2-save-url" class="display_none element-element-need2 uploadImg-spanA-hidden" name="backgroundOne" data-params="params" type="hidden"><span class="uploadImg-spanA" onclick="setClearImgFn(this)">x</span>
+            <label class="pointer">
+                <div class="uploadImg-preLook w_p100 h_p100"><img src=""  id="showImg_2"  alt="" class="uploadImg-imgA"></div>
+                <div class="uploadImgs-divO">
+                    +<p class="uploadImgs-pB">添加图片</p>
+                </div>
+                <input class="display_none element-element-need2 uploadImg-uploadedFile"   id="showImgFile_2"    name="uploadedFileImg2" type="file">
+            </label>
+        </div>
+    </div>
+
+
+    <div>
+        机型1
+        <div class="setSelect-container mt_24">
+            <select id="mobile_one" class="setSelect" name="mobile_one_select">
+                <option class="setSelect-opt display_none" value="占位" data-key="0">占位</option>
+                <option class="setSelect-opt" value="全选" data-key="0">全选</option>
+                <option class="setSelect-opt" value="iphone1" data-key="1">iphone1</option>
+                <option class="setSelect-opt" value="iphone2" data-key="2">iphone2</option>
+                <option class="setSelect-opt" value="huawei3" data-key="3">huawei3</option>
+                <option class="setSelect-opt" value="选项4" data-key="4">选项4</option>
+                <option class="setSelect-opt" value="选项5" data-key="5">选项5</option>
+            </select>
+            <ul class="setSelect-result"></ul>
+            <input class="setSelect-hidden" type="hidden" name="mobile_one">
+        </div>
+    </div>
+    <div>
+        机型2
+        <div class="setSelect-container mt_24">
+            <select id="mobile_two" class="setSelect" name="mobile_two_select">
+                <option class="setSelect-opt display_none" value="占位" data-key="0">占位</option>
+                <option class="setSelect-opt" value="全选" data-key="0">全选</option>
+                <option class="setSelect-opt" value="iphone1" data-key="1">iphone1</option>
+                <option class="setSelect-opt" value="iphone2" data-key="2">iphone2</option>
+                <option class="setSelect-opt" value="huawei3" data-key="3">huawei3</option>
+                <option class="setSelect-opt" value="选项4" data-key="4">选项4</option>
+                <option class="setSelect-opt" value="选项5" data-key="5">选项5</option>
+            </select>
+            <ul class="setSelect-result"></ul>
+            <input class="setSelect-hidden" type="hidden" name="mobile_two">
+        </div>
+    </div>
+
+    <button id="id" onclick="uploadImgAjax()">提交</button>
+</form>
+
+
+
+</body>
+<script>
+
+    // 上传图片 背景图
+    function setUpdateBgFn(){
+        new uploadImg({
+            group:'#uploadImg1-container',
+            saveUrl:'#uploadImg1-save-url'
+        });
+        new uploadImg({
+            group:'#uploadImg2-container',
+            saveUrl:'#uploadImg2-save-url'
+        });
+    }
+    setUpdateBgFn();
+
+
+    function uploadImgAjax(){
+        var self = this;
+        var $uploadImgContainer = $("#submitForm");
+        var url = $uploadImgContainer.attr("action");
+        $uploadImgContainer.attr("action",url);
+        var formData = new FormData($uploadImgContainer[0]);// 自动搜索表单信息(表单内没有name属性的input不会被搜索到)，IE<=9不支持FormData
+
+        //判断有没有选择图片
+
+
+
+        $.ajax({
+            type: 'POST',
+            url: url,
+            data: formData,
+            dataType: 'json',
+            contentType: false,// 当有文件要上传时，此项是必须的，否则后台无法识别文件流的起始位置(详见：#1)
+            processData: false,// 是否序列化data属性，默认true(注意：false时type必须是post，详见：#2)
+            beforeSend:function(result){
+                //layer.load(1, {shade: [0.5,'#000'] });
+            },
+            success: function(result) {
+                if(result.code == '0'){
+                    layer.msg(result.message);
+                    var hostName = (location.href.indexOf("http://ad.in-shequ.com/") > -1)?'http://order.in-shequ.com/api/order/get?filePath=':'http://ordertest.in-shequ.com/api/order/get?filePath=';
+                    var url = result.data.pathUrl;
+                    self.$group.find('img').attr('src',url);
+                    self.$saveUrl.val(url);
+                }else if(result.code == '1'){
+                    layer.msg(result.message);
+                }
+            }
+        })
+    }
+
+
+</script>
+</html>

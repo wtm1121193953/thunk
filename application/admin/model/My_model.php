@@ -67,8 +67,9 @@ Class My_model extends  Model{
 
      }
 
-     public function insert_one(){
+     public function insert_one($dataPost){
 
+         return $this->db($this->table)->insertGetId($dataPost);
 
      }
 

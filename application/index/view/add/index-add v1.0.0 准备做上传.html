@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        .setSelect-container{
+            width: 240px;
+            position: relative;
+            display: inline-block;
+        }
+        .setSelect{
+            width: 100%;
+            color: transparent;
+            padding: 6px;
+            border:1px solid #84b9ec;
+            border-radius: 4px;
+            background: url(./images/setSelect-img01.png) 400px center no-repeat;
+            background-size: auto;
+        }
+        .setSelect-opt{
+            color: #838383;
+            padding: 6px;
+        }
+        .setSelect-result{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: auto;
+            max-width: 90%;
+            padding: 4px;
+            white-space: nowrap;
+            overflow-x: auto;
+            margin:0;
+        }
+        .setSelect-result-item{
+            position: relative;
+            font-size: 14px;
+            color: #858585;
+            padding: 0px 15px 0 6px;
+            background: #f4f4f4;
+            display: inline-block;
+        }
+        .setSelect-result-del{
+            position: absolute;
+            top:50%;
+            right: 4px;
+            transform:translateY(-50%);
+            -ms-transform:translateY(-50%);     /* IE 9 */
+            -moz-transform:translateY(-50%);    /* Firefox */
+            -webkit-transform:translateY(-50%); /* Safari 和 Chrome */
+            -o-transform:translateY(-50%);  /* Opera */
+            cursor: pointer;
+        }
+        .mt_24{
+            margin-top:24px;
+        }
+        .display_none{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script rel="stylesheet" src="../../../static/layer/mobile/layer.js"> </script>
+<link href="../../../static/layer/mobile/need/layer.css" rel="stylesheet" type="text/css" />
+<script rel="stylesheet" src="../../../static/vue/node_modules/vue/dist/vue.js"> </script>
+<script rel="stylesheet" src="../../../static/vue/node_modules/vue/dist/axios.js"> </script>
+<script rel="stylesheet" src="../../../static/add.js"> </script>
+
+
+<form enctype="multipart/form-data" method="post" name="sbumit_form">
+
+    <p>
+       名称 <input id="name" type="text" name=""/>
+    </p>
+    <p>
+        图片1<input id="img_1" type="file" name=""/>
+    </p>
+    <p>
+        图片2<input id="img_2" type="file" name=""/>
+    </p>
+    <div>
+        机型1
+        <div class="setSelect-container mt_24">
+            <select id="mobile_one" class="setSelect" name="mobile_one_select">
+                <option class="setSelect-opt display_none" value="占位" data-key="0">占位</option>
+                <option class="setSelect-opt" value="全选" data-key="0">全选</option>
+                <option class="setSelect-opt" value="iphone1" data-key="1">iphone1</option>
+                <option class="setSelect-opt" value="iphone2" data-key="2">iphone2</option>
+                <option class="setSelect-opt" value="huawei3" data-key="3">huawei3</option>
+                <option class="setSelect-opt" value="选项4" data-key="4">选项4</option>
+                <option class="setSelect-opt" value="选项5" data-key="5">选项5</option>
+            </select>
+            <ul class="setSelect-result"></ul>
+            <input class="setSelect-hidden" type="hidden" name="mobile_one">
+        </div>
+    </div>
+    <div>
+        机型2
+        <div class="setSelect-container mt_24">
+            <select id="mobile_two" class="setSelect" name="mobile_two_select">
+                <option class="setSelect-opt display_none" value="占位" data-key="0">占位</option>
+                <option class="setSelect-opt" value="全选" data-key="0">全选</option>
+                <option class="setSelect-opt" value="iphone1" data-key="1">iphone1</option>
+                <option class="setSelect-opt" value="iphone2" data-key="2">iphone2</option>
+                <option class="setSelect-opt" value="huawei3" data-key="3">huawei3</option>
+                <option class="setSelect-opt" value="选项4" data-key="4">选项4</option>
+                <option class="setSelect-opt" value="选项5" data-key="5">选项5</option>
+            </select>
+            <ul class="setSelect-result"></ul>
+            <input class="setSelect-hidden" type="hidden" name="mobile_two">
+        </div>
+    </div>
+    <!--<p>-->
+        <!--机型<input id="mobile_one" type="text" name=""/>-->
+    <!--</p>-->
+    <!--<p>-->
+        <!--机型2<input id="mobile_two" type="text" name=""/>-->
+    <!--</p>-->
+    <button id="id">提交</button>
+</form>
+
+
+
+</body>
+</html>
