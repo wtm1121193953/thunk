@@ -9,7 +9,6 @@ class Index extends My_Controller
 {
 
 
-
     public function index()
     {
         return view();
@@ -49,6 +48,10 @@ class Index extends My_Controller
     }
 
 
+
+
+
+
     public function result_edit(){
 
        $arr =  [
@@ -62,9 +65,9 @@ class Index extends My_Controller
                 ['key'=>3,'value'=>'huawei3']
             ],
             'mobile_two'=>[
-                ['key'=>1,'value'=>'iphone1'],
-                ['key'=>2,'value'=>'iphone2'],
-                ['key'=>3,'value'=>'huawei3'],
+                ['key'=>4,'value'=>'iphone4'],
+                ['key'=>5,'value'=>'iphone5'],
+                ['key'=>6,'value'=>'huawei7'],
             ]
         ];
 

@@ -188,5 +188,58 @@ input[type="number"].uploadImgs-textB{-moz-appearance:textfield}
   height: 100%!important;
 }
 .display_none{
-  display:none
+  display:none!important;
+}
+
+
+.setSelect-container{
+  width: 240px;
+  position: relative;
+  display: inline-block;
+}
+.setSelect{
+  width: 100%;
+  color: transparent;
+  padding: 6px;
+  border:1px solid #84b9ec;
+  border-radius: 4px;
+  background: url(./images/setSelect-img01.png) 400px center no-repeat;
+  background-size: auto;
+}
+.setSelect-opt{
+  color: #838383;
+  padding: 6px;
+}
+.setSelect-result{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: auto;
+  max-width: 90%;
+  padding: 4px;
+  white-space: nowrap;
+  overflow-x: auto;
+  margin:0;
+}
+.setSelect-result-item{
+  position: relative;
+  font-size: 14px;
+  color: #858585;
+  padding: 0px 15px 0 6px;
+  background: #f4f4f4;
+  display: inline-block;
+}
+.setSelect-result-del{
+  position: absolute;
+  top:50%;
+  right: 4px;
+  transform:translateY(-50%);
+  -ms-transform:translateY(-50%);     /* IE 9 */
+  -moz-transform:translateY(-50%);    /* Firefox */
+  -webkit-transform:translateY(-50%); /* Safari 和 Chrome */
+  -o-transform:translateY(-50%);  /* Opera */
+  cursor: pointer;
+}
+.mt_24{
+  margin-top:24px;
 }

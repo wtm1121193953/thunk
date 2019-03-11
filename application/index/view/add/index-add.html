@@ -71,7 +71,7 @@
 <script rel="stylesheet" src="../../../static/uploadImg.js"> </script>
 <script rel="stylesheet" src="../../../static/add.js"> </script>
 
-
+<div id="app">
 <form enctype="multipart/form-data" method="post" id="submitForm" action="/index/index/submit">
 
     <p>
@@ -110,14 +110,19 @@
     <div>
         机型1
         <div class="setSelect-container mt_24">
-            <select id="mobile_one" class="setSelect" name="mobile_one_select">
+            <select id="mobile_one" class="setSelect" name="mobile_one_select" >
+                <!--<option    class="setSelect-opt display_none"  data-key="0"></option>-->
+                <!--<option  v-for="item in listOne"     class="setSelect-opt display_none" value={{item.key}} data-key="0">{{item.value}}</option>-->
+
                 <option class="setSelect-opt display_none" value="占位" data-key="0">占位</option>
                 <option class="setSelect-opt" value="全选" data-key="0">全选</option>
-                <option class="setSelect-opt" value="iphone1" data-key="1">iphone1</option>
-                <option class="setSelect-opt" value="iphone2" data-key="2">iphone2</option>
-                <option class="setSelect-opt" value="huawei3" data-key="3">huawei3</option>
-                <option class="setSelect-opt" value="选项4" data-key="4">选项4</option>
-                <option class="setSelect-opt" value="选项5" data-key="5">选项5</option>
+                <option   v-for="(item,index) in listOne" :value="item.value"  class="setSelect-opt"  :data-key="item.key">{{item.value}}</option>
+                <!--<option class="setSelect-opt" value="全选" data-key="0">全选</option>-->
+                <!--<option class="setSelect-opt" value="iphone1" data-key="1">iphone1</option>-->
+                <!--<option class="setSelect-opt" value="iphone2" data-key="2">iphone2</option>-->
+                <!--<option class="setSelect-opt" value="huawei3" data-key="3">huawei3</option>-->
+                <!--<option class="setSelect-opt" value="选项4" data-key="4">选项4</option>-->
+                <!--<option class="setSelect-opt" value="选项5" data-key="5">选项5</option>-->
             </select>
             <ul class="setSelect-result"></ul>
             <input class="setSelect-hidden" type="hidden" name="mobile_one">
@@ -129,11 +134,13 @@
             <select id="mobile_two" class="setSelect" name="mobile_two_select">
                 <option class="setSelect-opt display_none" value="占位" data-key="0">占位</option>
                 <option class="setSelect-opt" value="全选" data-key="0">全选</option>
-                <option class="setSelect-opt" value="iphone1" data-key="1">iphone1</option>
-                <option class="setSelect-opt" value="iphone2" data-key="2">iphone2</option>
-                <option class="setSelect-opt" value="huawei3" data-key="3">huawei3</option>
-                <option class="setSelect-opt" value="选项4" data-key="4">选项4</option>
-                <option class="setSelect-opt" value="选项5" data-key="5">选项5</option>
+                <!--<option  v-for="item in listTwo" class="setSelect-opt" value="{{item.value}}" data-key="{{item.key}}">{{item.value}}</option>-->
+                <option   v-for="(item,index) in listTwo" :value="item.value"  class="setSelect-opt"  :data-key="item.key">{{item.value}}</option>
+                <!--<option class="setSelect-opt" value="iphone1" data-key="1">iphone1</option>-->
+                <!--<option class="setSelect-opt" value="iphone2" data-key="2">iphone2</option>-->
+                <!--<option class="setSelect-opt" value="huawei3" data-key="3">huawei3</option>-->
+                <!--<option class="setSelect-opt" value="选项4" data-key="4">选项4</option>-->
+                <!--<option class="setSelect-opt" value="选项5" data-key="5">选项5</option>-->
             </select>
             <ul class="setSelect-result"></ul>
             <input class="setSelect-hidden" type="hidden" name="mobile_two">
@@ -144,9 +151,50 @@
 </form>
 
 
-
+</div>
 </body>
 <script>
+
+    var vm = new Vue({
+        el: '#app',
+        data:{
+            productList:[],
+            listOne:[],
+            listTwo:[],
+            listTree:[]
+        },
+        created:function () {
+            this.getList()
+        },
+        methods: {
+            getList: function () {
+                let that = this;
+                axios.post('/index/test/get_list_all')
+                    .then(function (response) {
+                        let data = response.data.list;
+
+                        that.listOne=data.list_one;
+                        that.listTwo=data.list_two;
+                        that.listTree=data.list_tree;
+
+                        setTimeout(function () {
+                            setEventsFn();
+                            setAddOrEditFn(id);
+                        },20)
+                    })
+                    .catch(function (error) {
+                        //  console.log(error);
+                    });
+            },
+
+
+        }
+    })
+
+
+
+
+
 
     // 上传图片 背景图
     function setUpdateBgFn(){
