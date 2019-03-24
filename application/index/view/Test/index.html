@@ -46,6 +46,21 @@
     </div>
 
 
+    <div class="uploadImgs-divM m_t_20">
+        <span class="uploadImgs-spanY">PPT背景图：</span>
+        <div id="uploadImg3-container" class="uploadImgs-labelD pd_0">
+            <input id="uploadImg3-save-url" class="display_none element-element-need2 uploadImg-spanA-hidden" name="backgroundOne" data-params="params" type="hidden"><span class="uploadImg-spanA" onclick="setClearImgFn(this)">x</span>
+            <label class="pointer">
+                <div class="uploadImg-preLook w_p100 h_p100"><img src=""  id="showImg_3"  alt="" class="uploadImg-imgA"></div>
+                <div class="uploadImgs-divO">
+                    +<p class="uploadImgs-pB">添加图片</p>
+                </div>
+                <input class="display_none element-element-need2 uploadImg-uploadedFile"   id="showImgFile_3"    name="uploadedFileImg3" type="file">
+            </label>
+        </div>
+    </div>
+
+
     <div>
         机型1
         <div class="setSelect-container mt_24">
@@ -150,6 +165,10 @@
         new uploadImg({
             group:'#uploadImg2-container',
             saveUrl:'#uploadImg2-save-url'
+        });
+        new uploadImg({
+            group:'#uploadImg3-container',
+            saveUrl:'#uploadImg3-save-url'
         });
     }
     setUpdateBgFn();
