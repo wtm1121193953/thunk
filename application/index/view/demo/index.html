@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .chkbox-item{
+            list-style: none;
+        }
+        .chkbox-icon,.chkbox-txt{
+            cursor: pointer;
+        }
+        .chkbox-icon-more{
+            display: none;
+        }
+        .chkbox-item.active>.chkbox-icon>.chkbox-icon-sort{
+            display: none;
+        }
+        .chkbox-item.active>.chkbox-icon>.chkbox-icon-more{
+            display: inline;
+        }
+        .chkbox-item>.chkbox-container{
+            display: none;
+        }
+        .chkbox-item.active>.chkbox-container{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script rel="stylesheet" src="../../../static/layer/mobile/layer.js"> </script>
+<link href="../../../static/layer/mobile/need/layer.css" rel="stylesheet" type="text/css" />
+<script rel="stylesheet" src="../../../static/vue/node_modules/vue/dist/vue.js"> </script>
+<script rel="stylesheet" src="../../../static/vue/node_modules/vue/dist/axios.js"> </script>
+
+<ul id="chkbox-container">
+    <li class="chkbox-item chkbox-item1">
+        <span class="chkbox-icon">
+            <span class="chkbox-icon-sort">+</span>
+            <span class="chkbox-icon-more">-</span>
+        </span>
+        <input class="chkbox-chkbx" type="checkbox">
+        <span class="chkbox-txt">Reno系列</span>
+        <ul class="chkbox-container">
+            <li class="chkbox-item chkbox-item2 active">
+                <span class="chkbox-icon">
+                    <span class="chkbox-icon-sort">+</span>
+                    <span class="chkbox-icon-more">-</span>
+                </span>
+                <input class="chkbox-chkbx" type="checkbox">
+                <span class="chkbox-txt">Reno 10倍变焦版</span>
+                <ul class="chkbox-container">
+                    <li class="chkbox-item chkbox-item3">
+                        <input class="chkbox-chkbx" type="checkbox">
+                        <span class="chkbox-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="chkbox-item chkbox-item3">
+                        <input class="chkbox-chkbx" type="checkbox">
+                        <span class="chkbox-txt">PCAM00-18097</span>
+                    </li>
+                </ul>
+            </li>
+            <li class="chkbox-item chkbox-item2 active">
+                <span class="chkbox-icon">
+                    <span class="chkbox-icon-sort">+</span>
+                    <span class="chkbox-icon-more">-</span>
+                </span>
+                <input class="chkbox-chkbx" type="checkbox">
+                <span class="chkbox-txt">Reno 10倍变焦版</span>
+                <ul class="chkbox-container">
+                    <li class="chkbox-item chkbox-item3">
+                        <input class="chkbox-chkbx" type="checkbox">
+                        <span class="chkbox-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="chkbox-item chkbox-item3">
+                        <input class="chkbox-chkbx" type="checkbox">
+                        <span class="chkbox-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="chkbox-item chkbox-item3">
+                        <input class="chkbox-chkbx" type="checkbox">
+                        <span class="chkbox-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="chkbox-item chkbox-item3">
+                        <input class="chkbox-chkbx" type="checkbox">
+                        <span class="chkbox-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="chkbox-item chkbox-item3">
+                        <input class="chkbox-chkbx" type="checkbox">
+                        <span class="chkbox-txt">PCAM00-18097</span>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li class="chkbox-item chkbox-item1">
+        <span class="chkbox-icon">
+            <span class="chkbox-icon-sort">+</span>
+            <span class="chkbox-icon-more">-</span>
+        </span>
+        <input class="chkbox-chkbx" type="checkbox">
+        <span class="chkbox-txt">Reno系列</span>
+        <ul class="chkbox-container">
+            <li class="chkbox-item chkbox-item2 active">
+                <span class="chkbox-icon">
+                    <span class="chkbox-icon-sort">+</span>
+                    <span class="chkbox-icon-more">-</span>
+                </span>
+                <input class="chkbox-chkbx" type="checkbox">
+                <span class="chkbox-txt">Reno 10倍变焦版</span>
+                <ul class="chkbox-container">
+                    <li class="chkbox-item chkbox-item3">
+                        <input class="chkbox-chkbx" type="checkbox">
+                        <span class="chkbox-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="chkbox-item chkbox-item3">
+                        <input class="chkbox-chkbx" type="checkbox">
+                        <span class="chkbox-txt">PCAM00-18097</span>
+                    </li>
+                </ul>
+            </li>
+            <li class="chkbox-item chkbox-item2 active">
+                <span class="chkbox-icon">
+                    <span class="chkbox-icon-sort">+</span>
+                    <span class="chkbox-icon-more">-</span>
+                </span>
+                <input class="chkbox-chkbx" type="checkbox">
+                <span class="chkbox-txt">Reno 10倍变焦版</span>
+                <ul class="chkbox-container">
+                    <li class="chkbox-item chkbox-item3">
+                        <input class="chkbox-chkbx" type="checkbox">
+                        <span class="chkbox-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="chkbox-item chkbox-item3">
+                        <input class="chkbox-chkbx" type="checkbox">
+                        <span class="chkbox-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="chkbox-item chkbox-item3">
+                        <input class="chkbox-chkbx" type="checkbox">
+                        <span class="chkbox-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="chkbox-item chkbox-item3">
+                        <input class="chkbox-chkbx" type="checkbox">
+                        <span class="chkbox-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="chkbox-item chkbox-item3">
+                        <input class="chkbox-chkbx" type="checkbox">
+                        <span class="chkbox-txt">PCAM00-18097</span>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li class="chkbox-item chkbox-item1">
+        <span class="chkbox-icon">
+            <span class="chkbox-icon-sort">+</span>
+            <span class="chkbox-icon-more">-</span>
+        </span>
+        <input class="chkbox-chkbx" type="checkbox">
+        <span class="chkbox-txt">Reno系列</span>
+        <ul class="chkbox-container">
+            <li class="chkbox-item chkbox-item2 active">
+                <span class="chkbox-icon">
+                    <span class="chkbox-icon-sort">+</span>
+                    <span class="chkbox-icon-more">-</span>
+                </span>
+                <input class="chkbox-chkbx" type="checkbox">
+                <span class="chkbox-txt">Reno 10倍变焦版</span>
+                <ul class="chkbox-container">
+                    <li class="chkbox-item chkbox-item3">
+                        <input class="chkbox-chkbx" type="checkbox">
+                        <span class="chkbox-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="chkbox-item chkbox-item3">
+                        <input class="chkbox-chkbx" type="checkbox">
+                        <span class="chkbox-txt">PCAM00-18097</span>
+                    </li>
+                </ul>
+            </li>
+            <li class="chkbox-item chkbox-item2 active">
+                <span class="chkbox-icon">
+                    <span class="chkbox-icon-sort">+</span>
+                    <span class="chkbox-icon-more">-</span>
+                </span>
+                <input class="chkbox-chkbx" type="checkbox">
+                <span class="chkbox-txt">Reno 10倍变焦版</span>
+                <ul class="chkbox-container">
+                    <li class="chkbox-item chkbox-item3">
+                        <input class="chkbox-chkbx" type="checkbox">
+                        <span class="chkbox-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="chkbox-item chkbox-item3">
+                        <input class="chkbox-chkbx" type="checkbox">
+                        <span class="chkbox-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="chkbox-item chkbox-item3">
+                        <input class="chkbox-chkbx" type="checkbox">
+                        <span class="chkbox-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="chkbox-item chkbox-item3">
+                        <input class="chkbox-chkbx" type="checkbox">
+                        <span class="chkbox-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="chkbox-item chkbox-item3">
+                        <input class="chkbox-chkbx" type="checkbox">
+                        <span class="chkbox-txt">PCAM00-18097</span>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li class="chkbox-item chkbox-item1">
+        <span class="chkbox-icon">
+            <span class="chkbox-icon-sort">+</span>
+            <span class="chkbox-icon-more">-</span>
+        </span>
+        <input class="chkbox-chkbx" type="checkbox">
+        <span class="chkbox-txt">Reno系列</span>
+        <ul class="chkbox-container">
+            <li class="chkbox-item chkbox-item2 active">
+                <span class="chkbox-icon">
+                    <span class="chkbox-icon-sort">+</span>
+                    <span class="chkbox-icon-more">-</span>
+                </span>
+                <input class="chkbox-chkbx" type="checkbox">
+                <span class="chkbox-txt">Reno 10倍变焦版</span>
+                <ul class="chkbox-container">
+                    <li class="chkbox-item chkbox-item3">
+                        <input class="chkbox-chkbx" type="checkbox">
+                        <span class="chkbox-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="chkbox-item chkbox-item3">
+                        <input class="chkbox-chkbx" type="checkbox">
+                        <span class="chkbox-txt">PCAM00-18097</span>
+                    </li>
+                </ul>
+            </li>
+            <li class="chkbox-item chkbox-item2 active">
+                <span class="chkbox-icon">
+                    <span class="chkbox-icon-sort">+</span>
+                    <span class="chkbox-icon-more">-</span>
+                </span>
+                <input class="chkbox-chkbx" type="checkbox">
+                <span class="chkbox-txt">Reno 10倍变焦版</span>
+                <ul class="chkbox-container">
+                    <li class="chkbox-item chkbox-item3">
+                        <input class="chkbox-chkbx" type="checkbox">
+                        <span class="chkbox-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="chkbox-item chkbox-item3">
+                        <input class="chkbox-chkbx" type="checkbox">
+                        <span class="chkbox-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="chkbox-item chkbox-item3">
+                        <input class="chkbox-chkbx" type="checkbox">
+                        <span class="chkbox-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="chkbox-item chkbox-item3">
+                        <input class="chkbox-chkbx" type="checkbox">
+                        <span class="chkbox-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="chkbox-item chkbox-item3">
+                        <input class="chkbox-chkbx" type="checkbox">
+                        <span class="chkbox-txt">PCAM00-18097</span>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li class="chkbox-item chkbox-item1">
+        <span class="chkbox-icon">
+            <span class="chkbox-icon-sort">+</span>
+            <span class="chkbox-icon-more">-</span>
+        </span>
+        <input class="chkbox-chkbx" type="checkbox">
+        <span class="chkbox-txt">Reno系列</span>
+        <ul class="chkbox-container">
+            <li class="chkbox-item chkbox-item2 active">
+                <span class="chkbox-icon">
+                    <span class="chkbox-icon-sort">+</span>
+                    <span class="chkbox-icon-more">-</span>
+                </span>
+                <input class="chkbox-chkbx" type="checkbox">
+                <span class="chkbox-txt">Reno 10倍变焦版</span>
+                <ul class="chkbox-container">
+                    <li class="chkbox-item chkbox-item3">
+                        <input class="chkbox-chkbx" type="checkbox">
+                        <span class="chkbox-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="chkbox-item chkbox-item3">
+                        <input class="chkbox-chkbx" type="checkbox">
+                        <span class="chkbox-txt">PCAM00-18097</span>
+                    </li>
+                </ul>
+            </li>
+            <li class="chkbox-item chkbox-item2 active">
+                <span class="chkbox-icon">
+                    <span class="chkbox-icon-sort">+</span>
+                    <span class="chkbox-icon-more">-</span>
+                </span>
+                <input class="chkbox-chkbx" type="checkbox">
+                <span class="chkbox-txt">Reno 10倍变焦版</span>
+                <ul class="chkbox-container">
+                    <li class="chkbox-item chkbox-item3">
+                        <input class="chkbox-chkbx" type="checkbox">
+                        <span class="chkbox-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="chkbox-item chkbox-item3">
+                        <input class="chkbox-chkbx" type="checkbox">
+                        <span class="chkbox-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="chkbox-item chkbox-item3">
+                        <input class="chkbox-chkbx" type="checkbox">
+                        <span class="chkbox-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="chkbox-item chkbox-item3">
+                        <input class="chkbox-chkbx" type="checkbox">
+                        <span class="chkbox-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="chkbox-item chkbox-item3">
+                        <input class="chkbox-chkbx" type="checkbox">
+                        <span class="chkbox-txt">PCAM00-18097</span>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+</body>
+<script>
+
+    // 设置点选
+    function chkFn($this){
+        var $chk = $this.find(">.chkbox-chkbx");
+        var leng = $this.find(">.chkbox-container>.chkbox-item>.chkbox-chkbx:checked").length;
+        leng?$chk.prop("checked",true):$chk.prop("checked",false);
+    }
+
+    // 设置事件
+    function eventsFn() {
+        // 展开/收起 事件
+        $(".chkbox-icon,.chkbox-txt").on("click",function () {
+            var $this = $(this);
+            var $item = $this.closest(".chkbox-item");
+            $item.toggleClass("active");
+        });
+        // 设置点选 事件
+        $(".chkbox-chkbx").on("change",function () {
+            var $this = $(this);
+            var $item = $this.closest(".chkbox-item");
+            var isChk = $this.prop("checked");
+            isChk?$item.find(".chkbox-chkbx").prop("checked",true):$item.find(".chkbox-chkbx").prop("checked",false);
+            $(".chkbox-item2").each(function () {
+                chkFn($(this));
+            });
+            $(".chkbox-item1").each(function () {
+                chkFn($(this));
+            })
+        })
+    }
+    eventsFn();
+
+</script>
+</html>

@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .setCheckboxDirTree-item{
+            list-style: none;
+        }
+        .setCheckboxDirTree-icon,.setCheckboxDirTree-txt{
+            cursor: pointer;
+        }
+        .setCheckboxDirTree-icon-more{
+            display: none;
+        }
+        .setCheckboxDirTree-item.active>.setCheckboxDirTree-icon>.setCheckboxDirTree-icon-sort{
+            display: none;
+        }
+        .setCheckboxDirTree-item.active>.setCheckboxDirTree-icon>.setCheckboxDirTree-icon-more{
+            display: inline;
+        }
+        .setCheckboxDirTree-item>.setCheckboxDirTree-container{
+            display: none;
+        }
+        .setCheckboxDirTree-item.active>.setCheckboxDirTree-container{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script rel="stylesheet" src="../../../static/layer/mobile/layer.js"> </script>
+<link href="../../../static/layer/mobile/need/layer.css" rel="stylesheet" type="text/css" />
+<script rel="stylesheet" src="../../../static/vue/node_modules/vue/dist/vue.js"> </script>
+<script rel="stylesheet" src="../../../static/vue/node_modules/vue/dist/axios.js"> </script>
+
+<ul id="setCheckboxDirTree-container">
+    <li class="setCheckboxDirTree-item setCheckboxDirTree-item1">
+        <span class="setCheckboxDirTree-icon">
+            <span class="setCheckboxDirTree-icon-sort">+</span>
+            <span class="setCheckboxDirTree-icon-more">-</span>
+        </span>
+        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+        <span class="setCheckboxDirTree-txt">Reno系列</span>
+        <ul class="setCheckboxDirTree-container">
+            <li class="setCheckboxDirTree-item setCheckboxDirTree-item2 active">
+                <span class="setCheckboxDirTree-icon">
+                    <span class="setCheckboxDirTree-icon-sort">+</span>
+                    <span class="setCheckboxDirTree-icon-more">-</span>
+                </span>
+                <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                <span class="setCheckboxDirTree-txt">Reno 10倍变焦版</span>
+                <ul class="setCheckboxDirTree-container">
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                </ul>
+            </li>
+            <li class="setCheckboxDirTree-item setCheckboxDirTree-item2 active">
+                <span class="setCheckboxDirTree-icon">
+                    <span class="setCheckboxDirTree-icon-sort">+</span>
+                    <span class="setCheckboxDirTree-icon-more">-</span>
+                </span>
+                <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                <span class="setCheckboxDirTree-txt">Reno 10倍变焦版</span>
+                <ul class="setCheckboxDirTree-container">
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                </ul>
+            </li>
+            <li class="setCheckboxDirTree-item setCheckboxDirTree-item2 active">
+                <span class="setCheckboxDirTree-icon">
+                    <span class="setCheckboxDirTree-icon-sort">+</span>
+                    <span class="setCheckboxDirTree-icon-more">-</span>
+                </span>
+                <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                <span class="setCheckboxDirTree-txt">Reno 10倍变焦版</span>
+                <ul class="setCheckboxDirTree-container">
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                </ul>
+            </li>
+            <li class="setCheckboxDirTree-item setCheckboxDirTree-item2 active">
+                <span class="setCheckboxDirTree-icon">
+                    <span class="setCheckboxDirTree-icon-sort">+</span>
+                    <span class="setCheckboxDirTree-icon-more">-</span>
+                </span>
+                <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                <span class="setCheckboxDirTree-txt">Reno 10倍变焦版</span>
+                <ul class="setCheckboxDirTree-container">
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li class="setCheckboxDirTree-item setCheckboxDirTree-item1">
+        <span class="setCheckboxDirTree-icon">
+            <span class="setCheckboxDirTree-icon-sort">+</span>
+            <span class="setCheckboxDirTree-icon-more">-</span>
+        </span>
+        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+        <span class="setCheckboxDirTree-txt">Reno系列</span>
+        <ul class="setCheckboxDirTree-container">
+            <li class="setCheckboxDirTree-item setCheckboxDirTree-item2 active">
+                <span class="setCheckboxDirTree-icon">
+                    <span class="setCheckboxDirTree-icon-sort">+</span>
+                    <span class="setCheckboxDirTree-icon-more">-</span>
+                </span>
+                <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                <span class="setCheckboxDirTree-txt">Reno 10倍变焦版</span>
+                <ul class="setCheckboxDirTree-container">
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                </ul>
+            </li>
+            <li class="setCheckboxDirTree-item setCheckboxDirTree-item2 active">
+                <span class="setCheckboxDirTree-icon">
+                    <span class="setCheckboxDirTree-icon-sort">+</span>
+                    <span class="setCheckboxDirTree-icon-more">-</span>
+                </span>
+                <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                <span class="setCheckboxDirTree-txt">Reno 10倍变焦版</span>
+                <ul class="setCheckboxDirTree-container">
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                </ul>
+            </li>
+            <li class="setCheckboxDirTree-item setCheckboxDirTree-item2 active">
+                <span class="setCheckboxDirTree-icon">
+                    <span class="setCheckboxDirTree-icon-sort">+</span>
+                    <span class="setCheckboxDirTree-icon-more">-</span>
+                </span>
+                <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                <span class="setCheckboxDirTree-txt">Reno 10倍变焦版</span>
+                <ul class="setCheckboxDirTree-container">
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                </ul>
+            </li>
+            <li class="setCheckboxDirTree-item setCheckboxDirTree-item2 active">
+                <span class="setCheckboxDirTree-icon">
+                    <span class="setCheckboxDirTree-icon-sort">+</span>
+                    <span class="setCheckboxDirTree-icon-more">-</span>
+                </span>
+                <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                <span class="setCheckboxDirTree-txt">Reno 10倍变焦版</span>
+                <ul class="setCheckboxDirTree-container">
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li class="setCheckboxDirTree-item setCheckboxDirTree-item1">
+        <span class="setCheckboxDirTree-icon">
+            <span class="setCheckboxDirTree-icon-sort">+</span>
+            <span class="setCheckboxDirTree-icon-more">-</span>
+        </span>
+        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+        <span class="setCheckboxDirTree-txt">Reno系列</span>
+        <ul class="setCheckboxDirTree-container">
+            <li class="setCheckboxDirTree-item setCheckboxDirTree-item2 active">
+                <span class="setCheckboxDirTree-icon">
+                    <span class="setCheckboxDirTree-icon-sort">+</span>
+                    <span class="setCheckboxDirTree-icon-more">-</span>
+                </span>
+                <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                <span class="setCheckboxDirTree-txt">Reno 10倍变焦版</span>
+                <ul class="setCheckboxDirTree-container">
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                </ul>
+            </li>
+            <li class="setCheckboxDirTree-item setCheckboxDirTree-item2 active">
+                <span class="setCheckboxDirTree-icon">
+                    <span class="setCheckboxDirTree-icon-sort">+</span>
+                    <span class="setCheckboxDirTree-icon-more">-</span>
+                </span>
+                <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                <span class="setCheckboxDirTree-txt">Reno 10倍变焦版</span>
+                <ul class="setCheckboxDirTree-container">
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                </ul>
+            </li>
+            <li class="setCheckboxDirTree-item setCheckboxDirTree-item2 active">
+                <span class="setCheckboxDirTree-icon">
+                    <span class="setCheckboxDirTree-icon-sort">+</span>
+                    <span class="setCheckboxDirTree-icon-more">-</span>
+                </span>
+                <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                <span class="setCheckboxDirTree-txt">Reno 10倍变焦版</span>
+                <ul class="setCheckboxDirTree-container">
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                </ul>
+            </li>
+            <li class="setCheckboxDirTree-item setCheckboxDirTree-item2 active">
+                <span class="setCheckboxDirTree-icon">
+                    <span class="setCheckboxDirTree-icon-sort">+</span>
+                    <span class="setCheckboxDirTree-icon-more">-</span>
+                </span>
+                <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                <span class="setCheckboxDirTree-txt">Reno 10倍变焦版</span>
+                <ul class="setCheckboxDirTree-container">
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li class="setCheckboxDirTree-item setCheckboxDirTree-item1">
+        <span class="setCheckboxDirTree-icon">
+            <span class="setCheckboxDirTree-icon-sort">+</span>
+            <span class="setCheckboxDirTree-icon-more">-</span>
+        </span>
+        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+        <span class="setCheckboxDirTree-txt">Reno系列</span>
+        <ul class="setCheckboxDirTree-container">
+            <li class="setCheckboxDirTree-item setCheckboxDirTree-item2 active">
+                <span class="setCheckboxDirTree-icon">
+                    <span class="setCheckboxDirTree-icon-sort">+</span>
+                    <span class="setCheckboxDirTree-icon-more">-</span>
+                </span>
+                <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                <span class="setCheckboxDirTree-txt">Reno 10倍变焦版</span>
+                <ul class="setCheckboxDirTree-container">
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                </ul>
+            </li>
+            <li class="setCheckboxDirTree-item setCheckboxDirTree-item2 active">
+                <span class="setCheckboxDirTree-icon">
+                    <span class="setCheckboxDirTree-icon-sort">+</span>
+                    <span class="setCheckboxDirTree-icon-more">-</span>
+                </span>
+                <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                <span class="setCheckboxDirTree-txt">Reno 10倍变焦版</span>
+                <ul class="setCheckboxDirTree-container">
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                </ul>
+            </li>
+            <li class="setCheckboxDirTree-item setCheckboxDirTree-item2 active">
+                <span class="setCheckboxDirTree-icon">
+                    <span class="setCheckboxDirTree-icon-sort">+</span>
+                    <span class="setCheckboxDirTree-icon-more">-</span>
+                </span>
+                <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                <span class="setCheckboxDirTree-txt">Reno 10倍变焦版</span>
+                <ul class="setCheckboxDirTree-container">
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                </ul>
+            </li>
+            <li class="setCheckboxDirTree-item setCheckboxDirTree-item2 active">
+                <span class="setCheckboxDirTree-icon">
+                    <span class="setCheckboxDirTree-icon-sort">+</span>
+                    <span class="setCheckboxDirTree-icon-more">-</span>
+                </span>
+                <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                <span class="setCheckboxDirTree-txt">Reno 10倍变焦版</span>
+                <ul class="setCheckboxDirTree-container">
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li class="setCheckboxDirTree-item setCheckboxDirTree-item1">
+        <span class="setCheckboxDirTree-icon">
+            <span class="setCheckboxDirTree-icon-sort">+</span>
+            <span class="setCheckboxDirTree-icon-more">-</span>
+        </span>
+        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+        <span class="setCheckboxDirTree-txt">Reno系列</span>
+        <ul class="setCheckboxDirTree-container">
+            <li class="setCheckboxDirTree-item setCheckboxDirTree-item2 active">
+                <span class="setCheckboxDirTree-icon">
+                    <span class="setCheckboxDirTree-icon-sort">+</span>
+                    <span class="setCheckboxDirTree-icon-more">-</span>
+                </span>
+                <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                <span class="setCheckboxDirTree-txt">Reno 10倍变焦版</span>
+                <ul class="setCheckboxDirTree-container">
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                </ul>
+            </li>
+            <li class="setCheckboxDirTree-item setCheckboxDirTree-item2 active">
+                <span class="setCheckboxDirTree-icon">
+                    <span class="setCheckboxDirTree-icon-sort">+</span>
+                    <span class="setCheckboxDirTree-icon-more">-</span>
+                </span>
+                <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                <span class="setCheckboxDirTree-txt">Reno 10倍变焦版</span>
+                <ul class="setCheckboxDirTree-container">
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                </ul>
+            </li>
+            <li class="setCheckboxDirTree-item setCheckboxDirTree-item2 active">
+                <span class="setCheckboxDirTree-icon">
+                    <span class="setCheckboxDirTree-icon-sort">+</span>
+                    <span class="setCheckboxDirTree-icon-more">-</span>
+                </span>
+                <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                <span class="setCheckboxDirTree-txt">Reno 10倍变焦版</span>
+                <ul class="setCheckboxDirTree-container">
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                </ul>
+            </li>
+            <li class="setCheckboxDirTree-item setCheckboxDirTree-item2 active">
+                <span class="setCheckboxDirTree-icon">
+                    <span class="setCheckboxDirTree-icon-sort">+</span>
+                    <span class="setCheckboxDirTree-icon-more">-</span>
+                </span>
+                <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                <span class="setCheckboxDirTree-txt">Reno 10倍变焦版</span>
+                <ul class="setCheckboxDirTree-container">
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                    <li class="setCheckboxDirTree-item setCheckboxDirTree-item3">
+                        <input class="setCheckboxDirTree-chkbx" type="checkbox">
+                        <span class="setCheckboxDirTree-txt">PCAM00-18097</span>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+</body>
+<script>
+
+    // 设置点选
+    function setCheckboxDirTreeChkFn($this){
+        var $chk = $this.find(">.setCheckboxDirTree-chkbx");
+        var leng = $this.find(">.setCheckboxDirTree-container>.setCheckboxDirTree-item>.setCheckboxDirTree-chkbx:checked").length;
+        leng?$chk.prop("checked",true):$chk.prop("checked",false);
+    }
+
+    // 设置事件
+    function setCheckboxDirTreeEventsFn() {
+        // 展开/收起 事件
+        $(".setCheckboxDirTree-icon,.setCheckboxDirTree-txt").on("click",function () {
+            var $this = $(this);
+            var $item = $this.closest(".setCheckboxDirTree-item");
+            $item.toggleClass("active");
+        })
+        // 设置点选 事件
+        $(".setCheckboxDirTree-chkbx").on("change",function () {
+            var $this = $(this);
+            var $item = $this.closest(".setCheckboxDirTree-item");
+            var isChk = $this.prop("checked");
+            isChk?$item.find(".setCheckboxDirTree-chkbx").prop("checked",true):$item.find(".setCheckboxDirTree-chkbx").prop("checked",false);
+            $(".setCheckboxDirTree-item2").each(function () {
+                setCheckboxDirTreeChkFn($(this));
+            })
+            $(".setCheckboxDirTree-item1").each(function () {
+                setCheckboxDirTreeChkFn($(this));
+            })
+        })
+    }
+    setCheckboxDirTreeEventsFn();
+
+</script>
+</html>
